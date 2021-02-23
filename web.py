@@ -25,8 +25,9 @@ def index():
 def viewPost(postId):
 	#query database
 	postText = network.getPost(postId)
+	postTextByLine = postText.split("\n")
 	#return post page
-	return render_template("post.html", postId = postId, postText = postText)
+	return render_template("post.html", postId = postId, postText = postText, postTextByLine = postTextByLine)
 
 if __name__ == "__main__":
 	network.init()

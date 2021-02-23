@@ -19,7 +19,11 @@
 			<p>Post ID: {{postId}}</p>
 		</div>
 		<div class="postArea">
-			<p>{{postText}}</p>
+			<p>
+				{% for line in postTextByLine %}
+				{{line}}<br>
+				{% endfor %}
+			</p>
 		</div>
 	</div>
 </body>
