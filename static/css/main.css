@@ -32,15 +32,10 @@
 }
 .titleBar
 {
-	border-bottom: 1px solid #5cb2ff;
+	border-bottom: 1px solid #514bbf;
 	margin-bottom: 20px;
 	padding-top: 5px;
 	padding-bottom: 7px;
-}
-.titleBar a
-{
-	text-decoration: none;
-	color: black;
 }
 .logo
 {
@@ -51,6 +46,14 @@
 {
 	height: 40px;
 	margin-right: 10px;
+}
+.logoNamePt1
+{
+	color: black;
+}
+.logoNamePt2
+{
+	color: #514bbf;
 }
 h1
 {
@@ -81,8 +84,16 @@ button
 		background: #222528;
 		color: white;
 	}
-	.titleBar a
+	.logoNamePt1
 	{
 		color: white;
+	}
+	.logoNamePt2
+	{
+		color: #7ccffe;
+	}
+	.titleBar
+	{
+		border-bottom: 1px solid #7ccffe;
 	}
 }
