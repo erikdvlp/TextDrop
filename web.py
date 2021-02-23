@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import hashlib
 import network
+import sys
 
 app = Flask(__name__)
 
@@ -25,9 +26,11 @@ def index():
 def viewPost(postId):
 	#query database
 	postText = network.getPost(postId)
+	#string manipulation
+	postSize = sys.getsizeof(postText)
 	postTextByLine = postText.split("\n")
 	#return post page
-	return render_template("post.html", postId = postId, postText = postText, postTextByLine = postTextByLine)
+	return render_template("post.html", postId = postId, postText = postText, postTextByLine = postTextByLine, postSize = postSize)
 
 if __name__ == "__main__":
 	network.init()

@@ -15,6 +15,11 @@
 	border: 1px solid #d6d6d6;
 	border-top: none;
 }
+.postFooter
+{
+	font-size: 0.7em;
+	margin-top: 10px;
+}
 
 @media screen and (prefers-color-scheme: dark)
 {
