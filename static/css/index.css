@@ -1,8 +1,8 @@
 .textBox
 {
-	font-family: monospace;
+	font-family: JetbrainsMono, monospace;
 	box-sizing: border-box;
-	font-size: 0.9em;
+	font-size: 0.75em;
 	width: 100%;
 	height: 30vh;
 	border-radius: 3px;
@@ -14,7 +14,7 @@
 {
 	.textBox
 	{
-		background: #282828;
+		background: #222528;
 		color: white;
 	}
 }

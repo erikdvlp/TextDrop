@@ -10,6 +10,12 @@
 	src: url("../font/Raleway-Bold.ttf");
 	font-weight: bold;
 }
+@font-face
+{
+	font-family: JetbrainsMono;
+	src: url("../font/JetbrainsMono-Regular.ttf");
+	font-weight: normal;
+}
 
 *
 {
@@ -26,8 +32,10 @@
 }
 .titleBar
 {
-	border-bottom: 1px dashed #56a50d;
+	border-bottom: 1px solid #5cb2ff;
 	margin-bottom: 20px;
+	padding-top: 5px;
+	padding-bottom: 7px;
 }
 .titleBar a
 {
@@ -41,8 +49,7 @@
 }
 .logoImg
 {
-	width: 50px;
-	height: 50px;
+	height: 40px;
 	margin-right: 10px;
 }
 h1
@@ -53,7 +60,7 @@ h1
 h2
 {
 	font-size: 0.9em;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 button
 {
@@ -66,17 +73,13 @@ button
 {
 	body
 	{
-		background: #282828;
+		background: #222528;
 		color: white;
 	}
 	button
 	{
-		background: #282828;
+		background: #222528;
 		color: white;
-	}
-	.titleBar
-	{
-		border-bottom: 1px dashed #a5210d;
 	}
 	.titleBar a
 	{

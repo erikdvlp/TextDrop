@@ -8,8 +8,8 @@
 }
 .postArea
 {
-	font-family: monospace;
-	font-size: 0.9em;
+	font-family: JetbrainsMono, monospace;
+	font-size: 0.75em;
 	padding: 10px;
 	border-radius: 0px 0px 3px 3px;
 	border: 1px solid #d6d6d6;
@@ -25,7 +25,7 @@
 {
 	.postHeader
 	{
-		background: #282828;
+		background: #222528;
 		color: white;
 	}
 }
