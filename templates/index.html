@@ -3,12 +3,25 @@
 <head>
 	<title>TextDrop</title>
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
-	<form action="/" method="post">
-		<textarea name="text" rows="4" cols="50"></textarea>
-		<button type="submit">Drop</button>
-	</form>
+	<div class="scope">
+		<div class="titleBar">
+			<a href="/"><div class="logo">
+				<img class="logoImg" src="{{ url_for('static', filename='img/logo.svg') }}">
+				<h1 class="logoName">TextDrop</h1>
+			</div></a>
+		</div>
+		<div class="postForm">
+			<h2>Create a new drop</h2>
+			<form action="/" method="post">
+				<textarea class="textBox" name="text"></textarea>
+				<button class="submitBtn" type="submit">Drop it like it's hot 🔥</button>
+			</form>
+		</div>
+	</div>
 </body>
-
 </html>

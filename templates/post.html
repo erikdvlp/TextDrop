@@ -3,9 +3,24 @@
 <head>
 	<title>View drop</title>
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
 </head>
 <body>
-	<p>{{postText}}</p>
+	<div class="scope">
+		<div class="titleBar">
+			<a href="/"><div class="logo">
+				<img class="logoImg" src="{{ url_for('static', filename='img/logo.svg') }}">
+				<h1 class="logoName">TextDrop</h1>
+			</div></a>
+		</div>
+		<div class="postHeader">
+			<p>Post ID: {{postId}}</p>
+		</div>
+		<div class="postArea">
+			<p>{{postText}}</p>
+		</div>
+	</div>
 </body>
-
 </html>

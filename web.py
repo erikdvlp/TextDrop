@@ -18,7 +18,6 @@ def index():
 		#go to post page
 		return redirect(url_for("viewPost", postId = postId))
 	#return index page
-	network.init()
 	return render_template("index.html")
 
 #view post page
@@ -30,4 +29,5 @@ def viewPost(postId):
 	return render_template("post.html", postId = postId, postText = postText)
 
 if __name__ == "__main__":
+	network.init()
 	app.run()

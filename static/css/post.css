@@ -1,0 +1,26 @@
+.postHeader
+{
+	font-size: 0.7em;
+	background: #efefef;
+	border-radius: 3px 3px 0px 0px;
+	padding: 5px;
+	border: 1px solid #d6d6d6;
+}
+.postArea
+{
+	font-family: monospace;
+	font-size: 0.9em;
+	padding: 10px;
+	border-radius: 0px 0px 3px 3px;
+	border: 1px solid #d6d6d6;
+	border-top: none;
+}
+
+@media screen and (prefers-color-scheme: dark)
+{
+	.postHeader
+	{
+		background: #282828;
+		color: white;
+	}
+}
