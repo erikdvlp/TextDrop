@@ -25,12 +25,12 @@ def index():
 @app.route("/p/<postId>")
 def viewPost(postId):
 	#query database
-	postText = network.getPost(postId)
+	post = network.getPost(postId)
 	#string manipulation
-	postSize = len(postText.encode("utf-8"))
-	postTextByLine = postText.split("\n")
+	postSize = len(post["text"].encode("utf-8"))
+	postTextByLine = post["text"].split("\n")
 	#return post page
-	return render_template("post.html", postId = postId, postText = postText, postTextByLine = postTextByLine, postSize = postSize)
+	return render_template("post.html", postId = postId, postTextByLine = postTextByLine, postSize = postSize, postTime = post["timestamp"])
 
 if __name__ == "__main__":
 	network.init()
