@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-import hashlib
+import post
 import network
-import sys
 
 app = Flask(__name__)
 
@@ -10,14 +9,10 @@ app = Flask(__name__)
 def index():
 	#create new post
 	if request.method == "POST":
-		#get form results
-		postText = request.form["text"]
-		#generate hash ID for post
-		postId = str(hashlib.md5(postText.encode("utf-8")).hexdigest())
-		#write to database
-		network.createPost(postId, postText)
-		#go to post page
-		return redirect(url_for("viewPost", postId = postId))
+		formText = request.form["text"]
+		p = post.Post(formText)
+		network.createPost(p)
+		return redirect(url_for("viewPost", postId = p.id))
 	#return index page
 	return render_template("index.html")
 
@@ -25,12 +20,13 @@ def index():
 @app.route("/p/<postId>")
 def viewPost(postId):
 	#query database
-	post = network.getPost(postId)
-	#string manipulation
-	postSize = len(post["text"].encode("utf-8"))
-	postTextByLine = post["text"].split("\n")
+	resp = network.getPost(postId)
+	p = post.Post(resp["text"], postId, resp["time"])
+	#manipulate strings for display
+	postSize = len(p.text.encode("utf-8"))
+	postTextByLine = p.text.split("\n")
 	#return post page
-	return render_template("post.html", postId = postId, postTextByLine = postTextByLine, postSize = postSize, postTime = post["timestamp"])
+	return render_template("post.html", postId = p.id, postTextByLine = postTextByLine, postSize = postSize, postTime = p.time)
 
 if __name__ == "__main__":
 	network.init()
