@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View raw drop</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/raw.css') }}">
+</head>
+<body>
+	<div class="rawArea">
+		<p>
+			{% for line in postTextByLine %}
+			{{line}}<br>
+			{% endfor %}
+		</p>
+	</div>
+</body>
+</html>

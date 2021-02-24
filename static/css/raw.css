@@ -1,0 +1,14 @@
+.rawArea
+{
+	font-size: 1.1em;
+	font-family: monospace;
+}
+
+@media screen and (prefers-color-scheme: dark)
+{
+	body
+	{
+		background: #222528;
+		color: white;
+	}
+}
