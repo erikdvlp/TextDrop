@@ -55,6 +55,15 @@
 {
 	color: #514bbf;
 }
+.drop
+{
+	height: 10px;
+	width: 10px;
+	background-color: #514bbf;
+	margin-right: 5px;
+	border-radius: 50%;
+	display: inline-block;
+}
 h1
 {
 	font-size: 1.7em;
@@ -76,6 +85,14 @@ button
 	background: white;
 	border: 1px solid #d6d6d6;
 }
+button:hover
+{
+	border: 1px solid #514bbf;
+}
+button:active
+{
+	color: #514bbf;
+}
 
 @media screen and (prefers-color-scheme: dark)
 {
@@ -89,6 +106,14 @@ button
 		background: #222528;
 		color: white;
 	}
+	button:hover
+	{
+		border: 1px solid #7ccffe;
+	}
+	button:active
+	{
+		color: #7ccffe;
+	}
 	.logoNamePt1
 	{
 		color: white;
@@ -100,5 +125,9 @@ button
 	.titleBar
 	{
 		border-bottom: 1px solid #7ccffe;
+	}
+	.drop
+	{
+		background-color: #7ccffe;
 	}
 }
