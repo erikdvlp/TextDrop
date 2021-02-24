@@ -74,7 +74,7 @@ h2
 	font-size: 1.1em;
 	margin-bottom: 10px;
 }
-button
+button, select
 {
 	font-size: 0.9em;
 	font-family: sans-serif;
@@ -101,7 +101,7 @@ button:active
 		background: #222528;
 		color: white;
 	}
-	button
+	button, select
 	{
 		background: #222528;
 		color: white;

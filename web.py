@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import post
 import network
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -27,8 +28,9 @@ def viewPost(postId):
 	#manipulate strings for display
 	postSize = len(p.text.encode("utf-8"))
 	postTextByLine = p.text.split("\n")
+	postTime = datetime.utcfromtimestamp(p.time).strftime("%d-%m-%Y %H:%M:%S")
 	#return post page
-	return render_template("post.html", postId = p.id, postTextByLine = postTextByLine, postSize = postSize, postTime = p.time)
+	return render_template("post.html", postId = p.id, postTextByLine = postTextByLine, postSize = postSize, postTime = postTime)
 
 #raw post page
 @app.route("/raw/<postId>")
