@@ -44,7 +44,7 @@
 }
 .logoImg
 {
-	height: 40px;
+	height: 60px;
 	margin-right: 10px;
 }
 .logoNamePt1
@@ -57,19 +57,24 @@
 }
 h1
 {
-	font-size: 1.3em;
+	font-size: 1.7em;
 	font-weight: normal;
 }
 h2
 {
-	font-size: 0.9em;
+	font-size: 1.1em;
 	margin-bottom: 10px;
 }
 button
 {
-	font-size: 0.7em;
-	font-family: Raleway, sans-serif;
+	font-size: 0.9em;
+	font-family: sans-serif;
 	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 3px;
+	background: white;
+	border: 1px solid #d6d6d6;
 }
 
 @media screen and (prefers-color-scheme: dark)

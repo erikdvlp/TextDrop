@@ -25,6 +25,9 @@ def getPost(postId):
 	c = conn.cursor()
 	c.execute("select text, time from posts where id=?", (postId,))
 	row = c.fetchone()
-	post = {"text": row[0], "time": row[1]}
-	conn.close()
-	return post
+	if (row != None):
+		post = {"text": row[0], "time": row[1]}
+		conn.close()
+		return post
+	else:
+		return None

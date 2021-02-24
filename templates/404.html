@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>No drop found</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+</head>
+<body>
+	<div class="scope">
+		<div class="titleBar">
+			<div class="logo">
+				<a href="/"><img class="logoImg" src="{{ url_for('static', filename='img/logo.svg') }}"></a>
+				<h1 class="logoName"><span class="logoNamePt1">Text</span><span class="logoNamePt2">Drop</span></h1>
+			</div>
+		</div>
+		<div class="errorArea">
+			<p class="errorLarge">404</p>
+			<p>No drop found. Maybe it expired?</p>
+		</div>
+	</div>
+</body>
+</html>

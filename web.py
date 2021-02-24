@@ -21,12 +21,18 @@ def index():
 def viewPost(postId):
 	#query database
 	resp = network.getPost(postId)
+	if (resp == None):
+		return redirect(url_for("noPage"))
 	p = post.Post(resp["text"], postId, resp["time"])
 	#manipulate strings for display
 	postSize = len(p.text.encode("utf-8"))
 	postTextByLine = p.text.split("\n")
 	#return post page
 	return render_template("post.html", postId = p.id, postTextByLine = postTextByLine, postSize = postSize, postTime = p.time)
+
+@app.route("/404")
+def noPage():
+	return render_template("404.html")
 
 if __name__ == "__main__":
 	network.init()
