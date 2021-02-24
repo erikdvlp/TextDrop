@@ -10,7 +10,8 @@ def index():
 	#create new post
 	if request.method == "POST":
 		formText = request.form["text"]
-		p = post.Post(formText)
+		duration = request.form["duration"]
+		p = post.Post(formText, duration)
 		network.createPost(p)
 		return redirect(url_for("viewPost", postId = p.id))
 	#return index page
@@ -20,10 +21,9 @@ def index():
 @app.route("/<postId>")
 def viewPost(postId):
 	#query database
-	resp = network.getPost(postId)
-	if (resp == None):
+	p = network.getPost(postId)
+	if (p == None):
 		return redirect(url_for("noPage"))
-	p = post.Post(resp["text"], postId, resp["time"])
 	#manipulate strings for display
 	postSize = len(p.text.encode("utf-8"))
 	postTextByLine = p.text.split("\n")
@@ -34,10 +34,9 @@ def viewPost(postId):
 @app.route("/raw/<postId>")
 def viewRawPost(postId):
 	#query database
-	resp = network.getPost(postId)
-	if (resp == None):
+	p = network.getPost(postId)
+	if (p == None):
 		return redirect(url_for("noPage"))
-	p = post.Post(resp["text"], postId, resp["time"])
 	#manipulate strings for display
 	postTextByLine = p.text.split("\n")
 	#return raw post page

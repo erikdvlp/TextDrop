@@ -1,15 +1,18 @@
 from datetime import datetime
 import hashlib
+import time
 
-timeFormat = "%d-%m-%Y %H:%M:%S"
+#timeFormat = "%d-%m-%Y %H:%M:%S"
 
 class Post:
 	id = None
 	text = None
 	time = None
+	duration = None
 
-	def __init__(self, text, id=None, time=None):
+	def __init__(self, text, duration=3600, id=None, time=None):
 		self.text = text
+		self.duration = duration
 		if (id == None):
 			self.id = self.generateId()
 		else:
@@ -17,10 +20,10 @@ class Post:
 		if (time == None):
 			self.time = self.generateTime()
 		else:
-			self.time = datetime.strptime(time, timeFormat)
+			self.time = time
 
 	def generateId(self):
 		return str(hashlib.md5(self.text.encode("utf-8")).hexdigest())
 
 	def generateTime(self):
-		return datetime.now().strftime(timeFormat)
+		return int(time.time())
