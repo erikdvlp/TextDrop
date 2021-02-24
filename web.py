@@ -34,6 +34,10 @@ def viewPost(postId):
 def noPage():
 	return render_template("404.html")
 
+@app.errorhandler(404)
+def handle_404(e):
+	return redirect(url_for("noPage"))
+
 if __name__ == "__main__":
 	network.init()
 	app.run()
