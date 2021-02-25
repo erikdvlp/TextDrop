@@ -43,7 +43,10 @@ def getRecentPosts():
 	rows = c.fetchall()
 	if (rows != None):
 		for r in rows:
-			p.append({"id": r[0], "text": r[1][0:75]})
+			textPreview = r[1]
+			if (len(textPreview) > 75):
+				textPreview = r[1][0:72] + "..."
+			p.append({"id": r[0], "text": textPreview})
 	conn.close()
 	return p
 
