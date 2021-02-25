@@ -11,7 +11,7 @@ def init():
 	except IOError:
 		conn = sqlite3.connect(dbDir)
 		c = conn.cursor()
-		c.execute("create table posts (id varchar(32), text varchar, time int, duration int, public boolean)")
+		c.execute("create table posts (id varchar(32), text varchar, time int, duration int, public int)")
 		conn.commit()
 		conn.close()
 
@@ -28,7 +28,7 @@ def getPost(postId):
 	c.execute("select text, duration, time, public from posts where id=?", (postId,))
 	row = c.fetchone()
 	if (row != None):
-		p = post.Post(row[0], row[1], postId, row[2], row[3])
+		p = post.Post(row[0], row[1], row[3], postId, row[2])
 		conn.close()
 		return p
 	else:
@@ -38,7 +38,7 @@ def getPost(postId):
 def getRecentPosts():
 	conn = sqlite3.connect(dbDir)
 	c = conn.cursor()
-	c.execute("select id, text from posts where public = true order by time desc limit 3")
+	c.execute("select id, text from posts where public = 1 order by time desc limit 3")
 	p = []
 	rows = c.fetchall()
 	if (rows != None):

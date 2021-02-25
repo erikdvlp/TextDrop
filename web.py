@@ -12,7 +12,12 @@ def index():
 	if request.method == "POST":
 		formText = request.form["text"]
 		duration = request.form["duration"]
-		p = post.Post(formText, duration)
+		public = request.form.get("public")
+		if (public != None):
+			public = 1
+		else:
+			public = 0
+		p = post.Post(formText, duration, public)
 		network.createPost(p)
 		return redirect(url_for("viewPost", postId = p.id))
 	#get index page
