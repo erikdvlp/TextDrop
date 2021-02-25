@@ -1,8 +1,5 @@
-from datetime import datetime
 import hashlib
 import time
-
-#timeFormat = "%d-%m-%Y %H:%M:%S"
 
 class Post:
 	id = None

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import post
 import network
-from datetime import datetime
+import helpers
 
 app = Flask(__name__)
 
@@ -10,20 +10,13 @@ app = Flask(__name__)
 def index():
 	#create new post
 	if request.method == "POST":
-		formText = request.form["text"]
-		duration = request.form["duration"]
-		public = request.form.get("public")
-		if (public != None):
-			public = 1
-		else:
-			public = 0
-		p = post.Post(formText, duration, public)
+		p = helpers.createPostFromForm(request.form)
 		network.createPost(p)
 		return redirect(url_for("viewPost", postId = p.id))
 	#get index page
 	else:
-		p = network.getRecentPosts()
-		return render_template("index.html", posts = p)
+		posts = network.getRecentPosts()
+		return render_template("index.html", posts = posts)
 
 #main post page
 @app.route("/<postId>")
@@ -33,11 +26,9 @@ def viewPost(postId):
 	if (p == None):
 		return redirect(url_for("noPage"))
 	#manipulate strings for display
-	postSize = len(p.text.encode("utf-8"))
-	postTextByLine = p.text.split("\n")
-	postTime = datetime.utcfromtimestamp(p.time).strftime("%d-%m-%Y %H:%M:%S")
+	strs = helpers.getDisplayStrings(p)
 	#return post page
-	return render_template("post.html", postId = p.id, postTextByLine = postTextByLine, postSize = postSize, postTime = postTime)
+	return render_template("post.html", postId = p.id, postTextByLine = strs["postTextByLine"], postSize = strs["postSize"], postTime = strs["postTime"])
 
 #raw post page
 @app.route("/raw/<postId>")
