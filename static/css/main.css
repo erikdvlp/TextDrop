@@ -22,6 +22,15 @@
 	margin: 0;
 	padding: 0;
 }
+a
+{
+	text-decoration: none;
+	color: black;
+}
+a:hover
+{
+	color: #514bbf;
+}
 .scope
 {
 	max-width: 1200px;
@@ -93,6 +102,11 @@ button:active
 {
 	color: #514bbf;
 }
+label
+{
+	font-size: 0.9em;
+	font-family: sans-serif;
+}
 
 @media screen and (prefers-color-scheme: dark)
 {
@@ -100,6 +114,14 @@ button:active
 	{
 		background: #222528;
 		color: white;
+	}
+	a
+	{
+		color: white;
+	}
+	a:hover
+	{
+		color: #7ccffe;
 	}
 	button, select
 	{

@@ -9,8 +9,9 @@ class Post:
 	text = None
 	time = None
 	duration = None
+	public = True
 
-	def __init__(self, text, duration=3600, id=None, time=None):
+	def __init__(self, text, duration=3600, id=None, time=None, public=True):
 		self.text = text
 		self.duration = duration
 		if (id == None):
@@ -21,6 +22,7 @@ class Post:
 			self.time = self.generateTime()
 		else:
 			self.time = time
+		self.public = public
 
 	def generateId(self):
 		return str(hashlib.md5(self.text.encode("utf-8")).hexdigest())

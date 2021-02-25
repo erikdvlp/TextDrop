@@ -12,11 +12,13 @@ def index():
 	if request.method == "POST":
 		formText = request.form["text"]
 		duration = request.form["duration"]
-		p = post.Post(formText, duration)
+		p = post.Post(formText, duration, public)
 		network.createPost(p)
 		return redirect(url_for("viewPost", postId = p.id))
-	#return index page
-	return render_template("index.html")
+	#get index page
+	else:
+		p = network.getRecentPosts()
+		return render_template("index.html", posts = p)
 
 #main post page
 @app.route("/<postId>")
