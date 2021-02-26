@@ -4,6 +4,7 @@ import network
 import helpers
 
 app = Flask(__name__)
+network.init()
 
 #home page
 @app.route("/", methods = ["GET", "POST"])
@@ -21,6 +22,8 @@ def index():
 #main post page
 @app.route("/<postId>")
 def viewPost(postId):
+	#check expiry
+	network.deleteExpiredPost(postId)
 	#query database
 	p = network.getPost(postId)
 	if (p == None):
@@ -33,6 +36,8 @@ def viewPost(postId):
 #raw post page
 @app.route("/raw/<postId>")
 def viewRawPost(postId):
+	#check expiry
+	network.deleteExpiredPost(postId)
 	#query database
 	p = network.getPost(postId)
 	if (p == None):
@@ -53,5 +58,4 @@ def handle_404(e):
 	return redirect(url_for("noPage"))
 
 if __name__ == "__main__":
-	network.init()
 	app.run()

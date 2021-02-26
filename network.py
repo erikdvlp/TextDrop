@@ -50,12 +50,22 @@ def getRecentPosts():
 	conn.close()
 	return p
 
-def deleteExpiredPosts():
+def deleteExpiredPost(postId):
+	conn = sqlite3.connect(dbDir)
+	c = conn.cursor()
+	c.execute("select time, duration from posts where id = ?", (postId,))
+	row = c.fetchone()
+	if (int(row[0]) + int(row[1]) < int(time.time())):
+		c.execute("delete from posts where id = ?", (postId,))
+		conn.commit()
+	conn.close()
+
+def deleteAllExpiredPosts():
 	conn = sqlite3.connect(dbDir)
 	c = conn.cursor()
 	c.execute("select id from posts where (time + duration) < ?", (int(time.time()),))
 	rows = c.fetchall()
 	for r in rows:
 		c.execute("delete from posts where id = ?", (r[0],))
-	conn.commit()
+		conn.commit()
 	conn.close()
