@@ -38,7 +38,7 @@ def getPost(postId):
 def getRecentPosts():
 	conn = sqlite3.connect(dbDir)
 	c = conn.cursor()
-	c.execute("select id, text from posts where public = 1 order by time desc limit 3")
+	c.execute("select id, text from posts where public = 1 and (time + duration) > ? order by time desc limit 3", (int(time.time()),))
 	p = []
 	rows = c.fetchall()
 	if (rows != None):
