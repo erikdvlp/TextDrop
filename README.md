@@ -4,9 +4,13 @@
 
 TextDrop is a Pastebin-like service built in Python and Flask. Drop some text and receive a unique URL for sharing. Drops expire after a short time.
 
-## Demo screenshots
+## Live demo
 
-Type or paste text into the drop creator on the home page.
+A live demo of TextDrop has been deployed [here](https://erikdvlp.xyz/textdrop/).
+
+## Screenshots
+
+Type or paste text into the drop creator on the home page. Select whether it should be public and its expiry time.
 
 <p align="center">
 <img src="marketing/demo1.png" alt="Demo screenshot 1">
