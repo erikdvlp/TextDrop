@@ -3,6 +3,10 @@
 	font-size: 1.1em;
 	font-family: monospace;
 }
+.rawArea p
+{
+	white-space: pre-wrap;
+}
 
 @media screen and (prefers-color-scheme: dark)
 {

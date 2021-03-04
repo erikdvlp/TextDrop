@@ -20,6 +20,10 @@
 	border: 1px solid #d6d6d6;
 	border-top: none;
 }
+.postArea p
+{
+	white-space: pre-wrap;
+}
 .postButtons
 {
 	margin-top: 3px;

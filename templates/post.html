@@ -24,11 +24,7 @@
 			<p>{{postId}}</p>
 		</div>
 		<div class="postArea">
-			<p>
-				{% for line in postTextByLine %}
-				{{line}}<br>
-				{% endfor %}
-			</p>
+			<p>{% for line in postTextByLine %}{{line}}{% endfor %}</p>
 		</div>
 		<div class="postButtons">
 			<a href="raw/{{postId}}"><button>View raw</button></a>
