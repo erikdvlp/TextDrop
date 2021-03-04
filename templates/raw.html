@@ -2,12 +2,8 @@
 <html>
 <head>
 	<title>View raw drop</title>
-	<meta content="width=device-width, initial-scale=1" name="viewport"/>
-	<meta name="description" content="Drop it, send it."/>
-	<meta name="og:title" content="TextDrop"/>
-	<link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-	<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+	{% include "meta.html" %}
+	{% include "favicon.html" %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/raw.css') }}">
 </head>
 <body>
